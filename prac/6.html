@@ -1,0 +1,122 @@
+<html>
+  <head>
+    <style>
+      .spacer {
+        margin-left: 10px;
+      }
+      .strong {
+        font-weight: 600;
+      }
+      .pop {
+        margin: 60px;
+        width: 300px;
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+      }
+      .list {
+        padding: 10px 0 0 12px;
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 16px;
+        list-style-type: none;
+        background-color: papayawhip;
+      }
+      .list li {
+        padding: 10px;
+      }
+      .list span {
+        font-style: italic;
+      }
+
+      .hidden {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <article id="first">
+        <div class="box">
+          <p class="spacer">para 1</p>
+          <p class="spacer">para 2</p>
+        </div>
+        <p id="bar">para 3</p>
+        <div class="box">
+          <p>para 4</p>
+        </div>
+      </article>
+      <article id="second">
+        <div class="box">
+          <p>para 5 <span>more stuff</span></p>
+          <p>para 6</p>
+        </div>
+        <input type="text" id="name" />
+      </article>
+      <div id="container"></div>
+      <div id="foo" class="spacer">This will get hidden</div>
+    </main>
+    <aside>
+      <article>
+        <label id="labCity">will be replaced</label>
+        <input type="text" id="city" />
+        <select id="paintings"></select>
+        <input type="submit" />
+      </article>
+    </aside>
+
+    <script>
+      /* -----  add your code here ... be sure to test each one! ---- */
+
+      /* Exercise 1 */
+      const first = document.querySelector("#first").tagName;
+      console.log(first);
+
+      /* Exercise 2 */
+      const labCity = document.querySelector("#labCity").textContent = "city";
+
+
+      /* Exercise 3 */
+      const afirst = document.querySelector("#first").style.backgroundColor = "yellow";
+
+      /* Exercise 4 */
+      const box = document.querySelectorAll(".box");
+      for (const b of box) {
+        console.dir(b);
+      }
+
+      /* Exercise 5 */
+      const div = document.querySelector("#foo");
+      div.className = "hidden";
+      const p = document.querySelectorAll("#first p");
+      for (let ps of p) {
+      ps.classList.add("strong");
+      }
+      /* Exercise 6 */
+      const input = document.querySelector("input#city").placeholder = "Enter a City: "
+
+      /* Exercise 7 */
+      const a = document.querySelector("div#container").innerHTML = `<a href=http://www.mtroyal.ca> Click Me</a>`
+
+      /* Exercise 8 */
+      const paintings = [
+        { id: 200, title: "Sunflowers", artist: "Van Gogh" },
+        { id: 300, title: "Sunrise", artist: "Manet" },
+        { id: 400, title: "The Kiss", artist: "Klimt" },
+        { id: 500, title: "Guernica", artist: "Picasso" },
+      ];	  
+
+      const second = document.querySelector("#paintings");
+      for (const p of paintings) {
+        const option = document.createElement('option');
+        option.value = p.id;
+        option.textContent = p.title;
+        second.appendChild(option);
+      }
+
+      /* Exercise 9 */
+      const s = document.querySelector("#second").innerHTML = " ";
+
+      /* Exercise 10 */
+
+    </script>
+  </body>
+</html>
